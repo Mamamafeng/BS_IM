@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.hyphenate.easeui.widget.EaseTitleBar
+        app:titleBarTitle="设置"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.hyphenate.easeui.widget.EaseTitleBar>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+        <ImageView
+            android:id="@+id/iv_setting_avatar"
+            android:src="@drawable/em_default_avatar"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:visibility="visible"/>
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:hint="昵称"
+                android:id="@+id/tv_setting_nick"
+                android:textSize="45sp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+            <TextView
+                android:id="@+id/tv_setting_name"
+                android:hint="账号"
+                android:textSize="45sp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/setting_reNick"
+        android:text="修改昵称"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <Button
+        android:id="@+id/bt_setting_repassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text="修改密碼 "
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
+
+    </ScrollView>
+    <Button
+        android:id="@+id/main_setting_logout"
+        android:text="退出登录"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+
+</LinearLayout>

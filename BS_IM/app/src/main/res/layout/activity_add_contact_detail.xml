@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".controller.Activity.AddContactDetailActivity">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+        <ImageView
+            android:id="@+id/iv_contact_detail_logo"
+            android:layout_gravity="center"
+            android:src="@drawable/em_default_avatar"
+            android:layout_marginLeft="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="100dp">
+            <TextView
+                android:id="@+id/tv_contact_detail_id"
+                android:text="id"
+                android:textSize="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+            <TextView
+                android:id="@+id/tv_contact_detail_nick"
+                android:text="昵称"
+                android:textSize="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:id="@+id/et_contact_detail_reason"
+            android:layout_width="match_parent"
+            android:layout_height="363dp"
+            android:gravity="start"
+            android:hint="邀请原因" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0">
+            <Button
+                android:id="@+id/bt_contact_detail_cancel"
+                android:text="取消"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"/>
+            <Button
+                android:id="@+id/bt_contact_detail_add"
+                android:text="添加"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
