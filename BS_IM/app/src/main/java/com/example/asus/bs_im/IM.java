@@ -2,11 +2,8 @@ package com.example.asus.bs_im;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.SearchRecentSuggestionsProvider;
 import android.text.TextUtils;
-
 import com.example.asus.bs_im.model.Model;
-import com.example.asus.bs_im.utils.SpUtils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.controller.EaseUI;
@@ -20,6 +17,8 @@ public class IM extends Application {
 
     private Map<String, EaseUser> contactList;
     public static Context context;
+
+    private EaseUI easeUI;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -34,6 +33,13 @@ public class IM extends Application {
         Model.getInstence().init(this);
         //初始化全局上下文对象
         context = this;
+        //设置EaseUI 里的 fragment 及相关控件显示用户头像和昵称
+        easeUI.setUserProfileProvider(new EaseUI.EaseUserProfileProvider() {
+            @Override
+            public EaseUser getUser(String username) {
+                return getUserInfo(username);
+            }
+        });
     }
     public static Context getGlobalContext(){
         return  context;
@@ -67,4 +73,5 @@ public class IM extends Application {
 
         return easeUser;
     }
+
 }

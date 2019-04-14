@@ -31,6 +31,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:text="人数限制"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_marginLeft="10dp"
+            android:id="@+id/et_newgroup_maxusers"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="人(上限为2000)"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
             android:text="是否公开"
             android:textSize="20sp"
             android:layout_width="0dp"

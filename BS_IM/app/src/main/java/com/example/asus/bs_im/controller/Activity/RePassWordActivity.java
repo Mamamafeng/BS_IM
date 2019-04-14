@@ -56,9 +56,8 @@ public class RePassWordActivity extends Activity {
     private void initListener() {
         newPassWord = String.valueOf(et_modify_name.getText());
         user = EMClient.getInstance().getCurrentUser();
-        String url = "https://a1.easemob.com/1108190122085684/mahaifeng-im/token";
-        String gson = "{\"grant_type\":\"client_credentials\",\"client_id\":\"YXA6VkZncB-aEemZ5vO6rLH8Kw\",\"client_secret\":\"YXA6rKqsDCY7gbMwKt-QJ2ZZqWWD5fs\"}";
-        getToken(url, gson, new Callback() {
+
+        getToken(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
@@ -66,6 +65,7 @@ public class RePassWordActivity extends Activity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                Log.d("feng",response.body().string());
                 Message message = handler.obtainMessage();
                 message.obj = response.body().string();
                 message.sendToTarget();
@@ -77,36 +77,32 @@ public class RePassWordActivity extends Activity {
             public void onClick(View v) {
                 String baseUrl = "https://a1.easemob.com/1108190122085684/mahaifeng/users/" +
                         user+ "/password";
-                try {
-                    rePassWord(baseUrl, newPassWord, tokenBean.getAccess_token(), new Callback() {
-                        @Override
-                        public void onFailure(Call call, IOException e) {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(RePassWordActivity.this,"修改密码失败",Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
+                rePassWord(baseUrl, newPassWord, tokenBean.getAccess_token(), new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(RePassWordActivity.this,"修改密码失败",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
 
-                        @Override
-                        public void onResponse(Call call, final Response response) throws IOException {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        Log.d("feng",response.body().string());
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                    Toast.makeText(RePassWordActivity.this,"修改密码成功",Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Log.d("feng",response.body().string());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                 }
-                            });
-                        }
-                    });
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                                Toast.makeText(RePassWordActivity.this,"修改密码成功",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
             }
         });
     }

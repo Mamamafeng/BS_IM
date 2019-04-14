@@ -46,7 +46,9 @@ public class ReNickActivity extends Activity {
     private void reNick() {
         //获取所设置的昵称
         nick = et_renick_nick.getText().toString();
-        Model.getInstence().getallthreadpool().execute(new Runnable() {
+
+        finish();
+        /*Model.getInstence().getallthreadpool().execute(new Runnable() {
             @Override
             public void run() {
                 nickChanged();
@@ -60,8 +62,8 @@ public class ReNickActivity extends Activity {
                     }
                 });
             }
-        });
-        finish();
+        });*/
+
     }
 
     private void nickChanged(){

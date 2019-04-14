@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.example.asus.bs_im.R;
 import com.example.asus.bs_im.controller.Activity.LoginActivity;
 import com.example.asus.bs_im.controller.Activity.ReNickActivity;
+import com.example.asus.bs_im.controller.Activity.RePassWordActivity;
 import com.example.asus.bs_im.controller.Activity.SetPictureActivity;
 import com.example.asus.bs_im.model.Model;
 import com.example.asus.bs_im.utils.Constant;

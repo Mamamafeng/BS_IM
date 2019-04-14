@@ -1,6 +1,5 @@
 package com.example.asus.bs_im.controller.Activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -8,14 +7,14 @@ import android.support.v4.app.FragmentManager;
 import android.widget.RadioGroup;
 
 import com.example.asus.bs_im.R;
-import com.example.asus.bs_im.controller.fragment.ChatFragment;
+import com.example.asus.bs_im.controller.fragment.ConversationListFragment;
 import com.example.asus.bs_im.controller.fragment.ContactFragment;
 import com.example.asus.bs_im.controller.fragment.SettingFragment;
 
 public class MainActivity extends FragmentActivity {
 
     private RadioGroup radioGroup;
-    private ChatFragment chatFragment;
+    private ConversationListFragment conversationListFragment;
     private ContactFragment contactFragment;
     private SettingFragment settingFragment;
     @Override
@@ -40,7 +39,7 @@ public class MainActivity extends FragmentActivity {
                 switch (checkedId){
                     //会话页面
                     case R.id.main_chat:
-                        fragment = chatFragment;
+                        fragment = conversationListFragment;
                         break;
                     //联系人页面
                     case R.id.main_contact:
@@ -67,7 +66,7 @@ public class MainActivity extends FragmentActivity {
 
     //初始化三个Fragment
     private void initData() {
-        chatFragment = new ChatFragment();
+        conversationListFragment = new ConversationListFragment();
         contactFragment = new ContactFragment();
         settingFragment = new SettingFragment();
     }

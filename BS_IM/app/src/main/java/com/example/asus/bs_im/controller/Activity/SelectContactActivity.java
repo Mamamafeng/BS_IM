@@ -18,6 +18,7 @@ import com.example.asus.bs_im.utils.Constant;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMGroup;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class SelectContactActivity extends Activity {
                 List<String> ids = selectContactsAdapter.getSelectContacts();
                 //给启动页面返回数据
                 Intent intent = new Intent();
-                intent.putExtra("contacts",ids.toArray(new String[0]));
+                intent.putExtra("contacts", (Serializable) ids);
                 setResult(RESULT_OK,intent);
 
                 finish();

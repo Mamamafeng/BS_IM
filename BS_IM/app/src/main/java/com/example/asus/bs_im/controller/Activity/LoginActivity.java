@@ -96,6 +96,8 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onSuccess() {
                         Model.getInstence().loginSuccess(new UserInfo(LoginAccount));
+                        EMClient.getInstance().groupManager().loadAllGroups();
+                        EMClient.getInstance().chatManager().loadAllConversations();
                         //更新用户信息到本地数据库
                         //Model.getInstence().getUserAccountTableDao().addAccount(new UserInfo(LoginAccount));
                         runOnUiThread(new Runnable() {
