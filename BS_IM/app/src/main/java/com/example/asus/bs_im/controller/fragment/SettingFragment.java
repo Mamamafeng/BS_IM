@@ -33,8 +33,12 @@ import com.example.asus.bs_im.utils.Constant;
 import com.example.asus.bs_im.utils.SpUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.controller.EaseUI;
+import com.hyphenate.easeui.domain.EaseUser;
 
 public class SettingFragment extends Fragment {
+
+    private EaseUI easeUI;
     private Button main_setting_logout;
     private Button setting_reNick;
     private Button bt_setting_repassword;

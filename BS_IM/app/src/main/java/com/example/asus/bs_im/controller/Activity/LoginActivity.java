@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,6 +19,11 @@ import com.example.asus.bs_im.model.Model;
 import com.example.asus.bs_im.model.bean.UserInfo;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class LoginActivity extends Activity {
     private EditText user_edit;

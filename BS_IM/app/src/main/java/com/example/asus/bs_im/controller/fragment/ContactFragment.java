@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,10 @@ import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.ui.EaseContactListFragment;
 import com.hyphenate.exceptions.HyphenateException;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -105,6 +110,30 @@ public class ContactFragment extends EaseContactListFragment {
         titleBar.setRightLayoutClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Model.getInstence().getallthreadpool().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Class.forName("com.mysql.jdbc.Driver");
+                            Log.d("feng","jiazaiqundongchenggong");
+                            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.79.2:3306/local","root","661617");
+                            Log.d("feng","lianjiechenggong");
+                            String sql = "select * from account_copy";
+                            Statement statement = connection.createStatement();
+                            ResultSet resultSet = statement.executeQuery(sql);
+                            while (resultSet.next()){
+                                String name = resultSet.getString("usernick");
+                                Log.d("feng",name);
+                            }
+                        } catch (ClassNotFoundException e) {
+                            Log.d("feng","ClassNotFoundExceptioncuowu"+e.toString());
+                            e.printStackTrace();
+                        } catch (SQLException e) {
+                            Log.d("feng","SQLExceptioncuowu"+e.toString());
+                            e.printStackTrace();
+                        }
+                    }
+                });
                 Intent intent = new Intent(getActivity(),AddContactActivity.class);
                 startActivity(intent);
             }
@@ -195,6 +224,7 @@ public class ContactFragment extends EaseContactListFragment {
                     List<String> allContactsFromServer = EMClient.getInstance().contactManager().getAllContactsFromServer();
                     //判断
                     if (allContactsFromServer != null && allContactsFromServer.size() >= 0){
+                        Log.d("feng","dsfsf");
                         List<UserInfo> list = new ArrayList<>();
                         for (String id : allContactsFromServer){
                             UserInfo userInfo = new UserInfo(id);

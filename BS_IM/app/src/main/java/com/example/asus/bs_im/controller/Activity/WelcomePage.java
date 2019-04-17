@@ -12,6 +12,11 @@ import com.example.asus.bs_im.model.Model;
 import com.example.asus.bs_im.model.bean.UserInfo;
 import com.hyphenate.chat.EMClient;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class WelcomePage extends Activity {
     Handler handler = new Handler(){
         @Override

@@ -15,6 +15,11 @@ import com.example.asus.bs_im.model.bean.UserInfo;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class RegisterAcitivity extends Activity {
 
     private Button concel;
@@ -32,6 +37,7 @@ public class RegisterAcitivity extends Activity {
         concel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
             }
         });
