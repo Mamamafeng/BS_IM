@@ -39,7 +39,7 @@
     <RelativeLayout
         android:id="@+id/rl_add"
         android:layout_margin="8dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView

@@ -46,13 +46,6 @@ public class SettingFragment extends Fragment {
     private TextView tv_setting_nick;
     private TextView tv_setting_name;
     private String currentUser;
-    private LocalBroadcastManager localBroadcastManager;
-    private BroadcastReceiver userInfoChangedReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            refreshView();
-        }
-    };
 
     @Nullable
     @Override
@@ -84,9 +77,6 @@ public class SettingFragment extends Fragment {
         //设置显示账号
         currentUser = EMClient.getInstance().getCurrentUser();
         tv_setting_name.setText(currentUser);
-
-        //设置一个广播接收器接收昵称和头像的变化
-        localBroadcastManager.registerReceiver(userInfoChangedReceiver,new IntentFilter(Constant.PHOTO_NICK_CHANGED));
 
         //设置显示昵称
         tv_setting_nick.setText(Model.getInstence().getUserAccountTableDao().getAccountInfo(currentUser).getNick());

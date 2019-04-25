@@ -15,8 +15,6 @@ import com.example.asus.bs_im.model.bean.TokenBean;
 import com.google.gson.Gson;
 import com.hyphenate.chat.EMClient;
 
-import org.json.JSONException;
-
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -39,7 +37,7 @@ public class RePassWordActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_re_pass_word);
+        setContentView(R.layout.activity_re_password);
         initView();
         initListener();
     }

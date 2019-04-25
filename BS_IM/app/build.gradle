@@ -11,6 +11,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //use legacy for android 6.0
         useLibrary 'org.apache.http.legacy'
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -19,13 +20,22 @@ android {
 
         }
     }
+
+    dexOptions {
+        javaMaxHeapSize"1g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     api 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.1'
+    //implementation 'com.android.support:support-v4:27.1.1'
     implementation('com.squareup.okhttp3:okhttp:3.8.1') {
         exclude group: 'com.android.support'
     }
@@ -37,5 +47,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     api project(':easeui')
     configurations { all*.exclude group: 'com.android.support' }
-    implementation files('libs/MysqlConnectorJava5.1.30.jar')
+    implementation files('libs/mysql-connector-java-8.0.11.jar')
 }
